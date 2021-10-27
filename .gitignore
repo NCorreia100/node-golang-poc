@@ -1,0 +1,14 @@
+# dependencies
+node_modules
+
+# bundles
+bundle.js
+
+#env
+*.env
+
+#logs
+*.log
+
+#config
+package-lock.json

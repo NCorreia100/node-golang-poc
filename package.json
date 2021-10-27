@@ -1,0 +1,31 @@
+{
+    "name": "node-golang-poc",
+    "version": "1.0.0",
+    "private": "false",
+    "author": "Nuno Correia",
+    "engines": {
+        "node": "10.x.x"
+    },
+    "scripts": {
+        "webpack-dev": "webpack -d --watch",
+        "node-dev": "nodemon ./node/index.js"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.8.3",
+        "express": "^4.16.4",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0",
+        "body-parser": "^1.18.3",
+        "compression": "^1.7.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "babel-loader": "^8.0.4",
+        "babel-core": "^7.0.0-bridge.0",
+        "@babel/preset-env": "^7.0.0",
+        "@babel/preset-react": "^7.0.0",
+        "nodemon": "^2.0.2",
+        "webpack": "^4.28.1",
+        "webpack-cli": "^3.1.2"
+    }
+}
