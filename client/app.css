@@ -1,0 +1,43 @@
+body{
+    display:flex;
+    font-family: "Source Sans Pro",sans-serif;
+}
+
+#root{
+    margin:auto;
+    width: 100%;
+}
+
+h1{
+    margin:25px auto 25px auto;
+    text-align: center;
+}
+
+table{
+    border: 2px solid #000;
+    width:50%;
+    margin:auto;
+}
+tr{
+    /* width:500px; */
+    font-size: 14pt;
+    line-height: 18pt;
+}
+
+tr:nth-child(1),tr:nth-child(3),tr:nth-child(5),tr:nth-child(7),tr:nth-child(9){
+    background-color: #D0D0D0;
+}
+
+th{
+    width:33%;
+font-size: 16pt;
+color:#fff;
+border-right:1px solid #fff;
+background-color: #000;
+}
+
+td{
+    width:33%;
+    text-align: end;
+    border-right:1px solid #000;
+}
