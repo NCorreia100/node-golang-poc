@@ -16,8 +16,7 @@ class App extends React.Component{
         .then(res=>res.json())
         .then(body=>{
             const {users} = body;
-            console.log('users',users)
-            this.setState({users})
+            this.setState({users:JSON.parse(users)})
         }).catch(err=>console.warn('Failed to retrieve users',err));
     }
     render(){
@@ -26,14 +25,15 @@ class App extends React.Component{
         return (<>
         <h1>Node - Go POC </h1>
         <table>
-        <tr className="mt-5"><th>user ID</th><th>name</th><th>age</th></tr>
+        <thead className="mt-5"><tr><th>user ID</th><th>name</th><th>age</th></tr></thead>
+        <tbody>
         {users.length===0?
-        (<tr className="mt-5">Loading users..</tr>)
-        : users.map(user=>
-            <tr key={user.id} className="mt-5">
-                <td>{user.id}</td><td>{user.name}</td><td>{user.age}</td>
-            </tr>
-        )}
+        (<tr className="mt-5"><th>Loading users..</th></tr>)
+        : users.map(user=>{
+            let {id,name,age} = user;
+           return <tr key={id} className="mt-5"><td>{id}</td><td>{name}</td><td>{age}</td></tr>
+    })}
+        </tbody>
         </table>
         </>)
     }

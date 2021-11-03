@@ -24,6 +24,7 @@
         "react": "^16.7.0",
         "react-dev-utils": "^11.0.3",
         "react-dom": "^16.7.0",
+        "request": "^2.88.2",
         "webfontloader": "^1.6.28",
         "webpack": "^4.41.6",
         "webpack-cli": "^3.3.10",
