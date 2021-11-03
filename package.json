@@ -8,7 +8,9 @@
     },
     "scripts": {
         "webpack-dev": "webpack -d --watch",
-        "node-dev": "nodemon ./node/index.js"
+        "node-dev": "nodemon ./node/index.js",
+        "go-compile": "swagger generate server -f ./swagger.yaml -A node-go-poc -t ./go",
+        "go-serve": "go run ./go/cmd/node-go-poc-server/main.go --port=2000"
     },
     "dependencies": {
         "@babel/polyfill": "^7.8.3",
