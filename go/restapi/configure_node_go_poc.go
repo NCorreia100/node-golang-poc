@@ -26,9 +26,7 @@ var u1 = models.User{
 
 
 func getUsers() []*models.User{
-// if(len(userList)==0){
-// userList=append(userList,&u1)
-// }
+
 return userList
 }
 
@@ -76,17 +74,17 @@ func configureAPI(api *operations.NodeGoPocAPI) http.Handler {
 
 	// if api.GetUsersHandler == nil {
 		api.GetUsersHandler = operations.GetUsersHandlerFunc(func(params operations.GetUsersParams) middleware.Responder {
-			// return middleware.NotImplemented("operation operations.GetUsers has not yet been implemented")			
-				return operations.NewGetUsersOK().WithPayload(getUsers())
+			return operations.NewGetUsersOK().WithPayload(getUsers())
 		})
 
 		api.SaveUserHandler = operations.SaveUserHandlerFunc(func(params operations.SaveUserParams)middleware.Responder{
+			if(params.User==nil || params.User.Name ==nil || params.User.Age==nil){
+				return operations.NewSaveUserPreconditionFailed()
+			}
 		savedU := saveUser(params.User)
 			fmt.Printf("New User Added: {id: %+v, name: %+v, age: %+v}\n", savedU.ID,*savedU.Name,*savedU.Age)
 		return operations.NewSaveUserCreated().WithPayload(savedU)
 		})
-	// }
-	// })
 
 	api.PreServerShutdown = func() {}
 
